@@ -33,7 +33,7 @@ resource "hcloud_server" "monitoring_vm" {
   ssh_keys    = ["andrzej-vps"]
 }
 
-resource "hcloud_server" "test_vm3" {
+resource "hcloud_server" "test_vm" {
   name        = "devops-test-ci"
   image       = "ubuntu-24.04"
   server_type = "cx23"
