@@ -9,3 +9,4 @@ output "monitoring_server_ip" {
 output "test_server_ip" {
   value = hcloud_server.test_vm.ipv4_address
 }
+# test
