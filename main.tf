@@ -36,7 +36,7 @@ resource "hcloud_server" "monitoring_vm" {
 resource "hcloud_server" "test_vm" {
   name        = "devops-test-ci"
   image       = "ubuntu-24.04"
-  server_type = "cx22"
+  server_type = "cx23"
   location    = "nbg1"
   ssh_keys    = ["andrzej-vps"]
 }
