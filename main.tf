@@ -1,12 +1,16 @@
 terraform {
+  cloud {
+    organization = "andrzejpusty"
+
+    workspaces {
+      name = "terraform-hetzner"
+    }
+  }
+
   required_providers {
     hcloud = {
       source  = "hetznercloud/hcloud"
       version = "~> 1.45"
-    }
-    local = {
-      source  = "hashicorp/local"
-      version = "~> 2.5"
     }
   }
 }
@@ -29,14 +33,10 @@ resource "hcloud_server" "monitoring_vm" {
   ssh_keys    = ["andrzej-vps"]
 }
 
-resource "local_file" "ansible_inventory" {
-  filename = "/home/andrew/projekty/ansible-hetzner-test/inventory"
-
-  content = <<EOT
-[app]
-${hcloud_server.devops_vm.ipv4_address} ansible_user=root
-
-[monitoring]
-${hcloud_server.monitoring_vm.ipv4_address} ansible_user=root
-EOT
+resource "hcloud_server" "test_vm" {
+  name        = "devops-test-ci"
+  image       = "ubuntu-24.04"
+  server_type = "cx22"
+  location    = "nbg1"
+  ssh_keys    = ["andrzej-vps"]
 }

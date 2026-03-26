@@ -5,3 +5,7 @@ output "app_server_ip" {
 output "monitoring_server_ip" {
   value = hcloud_server.monitoring_vm.ipv4_address
 }
+
+output "test_server_ip" {
+  value = hcloud_server.test_vm.ipv4_address
+}
