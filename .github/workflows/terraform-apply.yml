@@ -9,6 +9,7 @@ jobs:
 
     env:
       HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
+      TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
 
     steps:
       - name: Checkout repo
@@ -19,9 +20,6 @@ jobs:
 
       - name: Terraform init
         run: terraform init
-
-      - name: Terraform plan
-        run: terraform plan
 
       - name: Terraform apply
         run: terraform apply -auto-approve
