@@ -13,9 +13,6 @@ jobs:
 
     env:
       HCLOUD_TOKEN: ${{ secrets.HCLOUD_TOKEN }}
-
-
-    env:
       TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
 
     steps:
