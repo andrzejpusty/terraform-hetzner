@@ -32,4 +32,3 @@ resource "hcloud_server" "monitoring_vm" {
   location    = "nbg1"
   ssh_keys    = ["andrzej-vps"]
 }
-
